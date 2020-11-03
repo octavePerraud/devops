@@ -1,1 +1,4 @@
 language: java
+script:
+  - cd ./simple-api
+  - mvn clean verify
