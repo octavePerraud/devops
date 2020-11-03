@@ -1,13 +1,14 @@
 language: java
+
 script:
   - cd ./simple-api
   - mvn clean verify
 
   # Connexion à Docker
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stadin
-  # build
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  # Build
   - docker build -t $DOCKER_USERNAME/tp-devops .
-  #Publication des images
+  # Publication des images
   - docker push $DOCKER_USERNAME/tp-devops
 
 branches:
@@ -17,6 +18,6 @@ branches:
 cache:
   directories:
     - $HOME/.m2
-  services:
-    - docker
 
+services:
+  - docker
