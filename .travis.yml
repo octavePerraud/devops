@@ -1,14 +1,14 @@
 language: java
 
-script:
-  - cd ./simple-api
-  - mvn clean verify org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=octavePerraud_devops
-  # Connexion à Docker
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  # Build
-  - docker build -t $DOCKER_USERNAME/tp-devops .
-  # Publication des images
-  - docker push $DOCKER_USERNAME/tp-devops
+jobs:
+  include:
+    - stage: dev
+      name: test1
+      script: bash script/build.sh
+
+    - stage: prod
+      name: test1
+      script: bash script/docker.sh
 
 branches:
   only:
