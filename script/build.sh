@@ -1,1 +1,1 @@
-mvn clean verify --file ./simple_api/pom.xml org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=octavePerraud_devops
+mvn clean verify --file ./simple-api/pom.xml org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=octavePerraud_devops
