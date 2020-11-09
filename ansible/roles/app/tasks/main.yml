@@ -1,0 +1,6 @@
+- name: Start a container
+  docker_container:
+    name: backend
+    image: octaveperraud/tp-devops:tp2-simple-api
+    networks:
+      - name: app-network
