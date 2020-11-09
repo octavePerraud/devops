@@ -1,0 +1,11 @@
+- name: start a container and use an env file
+  docker_container:
+    name: database
+    image: octaveperraud/tp-devops:tp2-database
+    restart: yes
+    networks:
+      - name: app-network
+    env:
+      POSTGRES_PASSWORD=pwd
+      POSTGRES_USER=usr
+      POSTGRES_DB=db

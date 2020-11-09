@@ -1,0 +1,8 @@
+- name: start a container proxy
+  docker_container:
+    name: reverse_proxy
+    image: octaveperraud/tp-devops:tp2-httpd
+    ports:
+      - "80:80"
+    networks:
+      - name: app-network
